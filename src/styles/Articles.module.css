@@ -1,0 +1,16 @@
+.articlesList {
+  list-style-type: none; /* Remove bullets */
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: table table;
+  column-gap: 30px;
+  row-gap: 10px;
+}
+
+.list {
+  margin: 10px 0;
+}
+
+table {
+  border: rgb(101, 101, 101) 2px dotted;
+}
