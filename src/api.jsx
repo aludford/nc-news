@@ -13,3 +13,19 @@ export const fetchArticlesByTopic = (topic) => {
     return res.json();
   });
 };
+
+export const fetchSingleArticle = (article_id) => {
+  return fetch(
+    `https://northcoders-news-api-app.herokuapp.com/api/articles/${article_id}`
+  ).then((res) => {
+    return res.json();
+  });
+};
+
+export const fetchTopics = () => {
+  return fetch(
+    "https://northcoders-news-api-app.herokuapp.com/api/topics"
+  ).then((res) => {
+    return res.json();
+  });
+};
