@@ -3,6 +3,7 @@ import Articles from "./components/Articles";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
+import SingleTopic from "./components/SingleTopic";
 import Topics from "./components/Topics";
 import "./styles/App.css";
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/topics" element={<Topics />} />
+          <Route path="/topics/:topic_slug" element={<SingleTopic />} />
         </Routes>
       </div>
     </BrowserRouter>
