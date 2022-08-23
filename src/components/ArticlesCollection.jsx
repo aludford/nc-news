@@ -7,11 +7,15 @@ const ArticlesCollection = (props) => {
       {props.articles.map((article) => {
         return (
           <li key={article.article_id}>
-            <table>
+            <table className={styles.articleTable}>
               <tbody>
                 <tr>
                   <th>Title</th>
-                  <td>{article.title}</td>
+                  <td>
+                    <Link to={`/articles/${article.article_id}`}>
+                      {article.title}
+                    </Link>
+                  </td>
                 </tr>
                 <tr>
                   <th>Author</th>

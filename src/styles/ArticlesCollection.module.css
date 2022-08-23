@@ -7,6 +7,6 @@
   row-gap: 10px;
 }
 
-table {
+.articleTable {
   border: rgb(101, 101, 101) 2px dotted;
 }

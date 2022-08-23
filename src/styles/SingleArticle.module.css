@@ -1,0 +1,9 @@
+.articleTable {
+  border: rgb(101, 101, 101) 2px dotted;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.articleBody {
+  margin: 16px 20px;
+}

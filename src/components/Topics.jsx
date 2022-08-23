@@ -1,4 +1,4 @@
-import SingleTopic from "./SingleTopic";
+// import SingleTopic from "./SingleTopic";
 
 const Topics = () => {
   return (
