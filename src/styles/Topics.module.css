@@ -1,0 +1,11 @@
+.topics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-transform: capitalize;
+  justify-content: center;
+}
+
+.topics h3 {
+  margin-right: 20px;
+}

@@ -21,3 +21,11 @@ export const fetchSingleArticle = (article_id) => {
     return res.json();
   });
 };
+
+export const fetchTopics = () => {
+  return fetch(
+    "https://northcoders-news-api-app.herokuapp.com/api/topics"
+  ).then((res) => {
+    return res.json();
+  });
+};
