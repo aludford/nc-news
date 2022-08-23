@@ -7,3 +7,17 @@
 .articleBody {
   margin: 16px 20px;
 }
+
+.voting {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.voting button {
+  width: 100px;
+  height: 30px;
+  margin-right: 20px;
+}
