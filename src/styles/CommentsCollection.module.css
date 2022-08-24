@@ -1,0 +1,28 @@
+.commentsBox {
+  border-bottom: 1px solid silver;
+  margin: 10px 20px;
+  background-color: #f5f5f5;
+}
+
+.author {
+  color: #003580;
+}
+
+.userInfo {
+  display: flex;
+}
+
+.userInfo p {
+  margin: 0 30px;
+}
+
+.commentBody {
+  margin: 8px 10px;
+}
+
+.commentVote {
+  text-align: right;
+  margin-right: 30px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}

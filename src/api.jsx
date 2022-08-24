@@ -45,3 +45,11 @@ export const patchArticleVotesDown = (article_id) => {
     { inc_votes: -1 }
   );
 };
+
+export const fetchComments = (article_id) => {
+  return fetch(
+    `https://northcoders-news-api-app.herokuapp.com/api/articles/${article_id}/comments`
+  ).then((res) => {
+    return res.json();
+  });
+};
