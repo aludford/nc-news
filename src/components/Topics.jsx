@@ -10,7 +10,6 @@ const Topics = () => {
   useEffect(() => {
     fetchTopics().then(({ topics }) => {
       setTopics(topics);
-      console.log(topics);
       setIsLoading(false);
     });
   }, []);
