@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { fetchSingleArticle, patchArticleVotes } from "../api";
+import {
+  fetchSingleArticle,
+  patchArticleVotesUp,
+  patchArticleVotesDown,
+} from "../api";
 import styles from "../styles/SingleArticle.module.css";
 
 const SingleArticle = () => {
@@ -24,7 +28,7 @@ const SingleArticle = () => {
       return currOptimisticVotes + 1;
     });
     setErr(null);
-    patchArticleVotes(article_id).catch(() => {
+    patchArticleVotesUp(article_id).catch(() => {
       setOptimisticVotes((currOptimisticVotes) => {
         setErr("Something went wrong, please try again.");
         return currOptimisticVotes - 1;
@@ -37,7 +41,7 @@ const SingleArticle = () => {
       return currOptimisticVotes - 1;
     });
     setErr(null);
-    patchArticleVotes(article_id).catch(() => {
+    patchArticleVotesDown(article_id).catch(() => {
       setOptimisticVotes((currOptimisticVotes) => {
         setErr("Something went wrong, please try again.");
         return currOptimisticVotes + 1;
