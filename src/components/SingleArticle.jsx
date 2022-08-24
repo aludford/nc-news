@@ -6,6 +6,7 @@ import {
   patchArticleVotesDown,
 } from "../api";
 import styles from "../styles/SingleArticle.module.css";
+import CommentsCollection from "./CommentsCollection";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -50,43 +51,46 @@ const SingleArticle = () => {
   };
 
   return (
-    <div>
-      <h2>{singleArticle.title}</h2>
-      <table className={styles.articleTable}>
-        <tbody>
-          <tr>
-            <th>Author</th>
-            <td>{singleArticle.author}</td>
-          </tr>
-          <tr>
-            <th>Date Created</th>
-            <td>{singleArticle.created_at}</td>
-          </tr>
-          <tr>
-            <th>Topic</th>
-            <td>
-              <Link to={`/topics/${singleArticle.topic}`}>
-                {singleArticle.topic}
-              </Link>
-            </td>
-          </tr>
-          <tr>
-            <th>Comments</th>
-            <td>{singleArticle.comment_count}</td>
-          </tr>
-          <tr>
-            <th>Votes</th>
-            <td>{singleArticle.votes + optimisticVotes}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div className={styles.voting}>
-        <button onClick={incrementVotes}>Like!</button>
-        <button onClick={decrementVotes}>Dislike!</button>
-        {err ? <p>{err}</p> : null}
+    <section>
+      <div>
+        <h2>{singleArticle.title}</h2>
+        <table className={styles.articleTable}>
+          <tbody>
+            <tr>
+              <th>Author</th>
+              <td>{singleArticle.author}</td>
+            </tr>
+            <tr>
+              <th>Date Created</th>
+              <td>{singleArticle.created_at}</td>
+            </tr>
+            <tr>
+              <th>Topic</th>
+              <td>
+                <Link to={`/topics/${singleArticle.topic}`}>
+                  {singleArticle.topic}
+                </Link>
+              </td>
+            </tr>
+            <tr>
+              <th>Comments</th>
+              <td>{singleArticle.comment_count}</td>
+            </tr>
+            <tr>
+              <th>Votes</th>
+              <td>{singleArticle.votes + optimisticVotes}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div className={styles.voting}>
+          <button onClick={incrementVotes}>Like!</button>
+          <button onClick={decrementVotes}>Dislike!</button>
+          {err ? <p>{err}</p> : null}
+        </div>
+        <p className={styles.articleBody}>{singleArticle.body}</p>
       </div>
-      <p className={styles.articleBody}>{singleArticle.body}</p>
-    </div>
+      <CommentsCollection />
+    </section>
   );
 };
 
