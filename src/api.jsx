@@ -53,3 +53,10 @@ export const fetchComments = (article_id) => {
     return res.json();
   });
 };
+
+export const postCommentAPI = (article_id, username, comment) => {
+  return axios.post(
+    `https://northcoders-news-api-app.herokuapp.com/api/articles/${article_id}/comments`,
+    { username: username, body: comment }
+  );
+};

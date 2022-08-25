@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchComments } from "../api";
 import styles from "../styles/CommentsCollection.module.css";
+import PostComment from "./PostComment";
 
-const CommentsCollection = () => {
+const CommentsCollection = (props) => {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,10 @@ const CommentsCollection = () => {
           </div>
         );
       })}
+      <PostComment
+        setComments={setComments}
+        setSingleArticle={props.setSingleArticle}
+      />
     </div>
   );
 };
