@@ -89,7 +89,7 @@ const SingleArticle = () => {
         </div>
         <p className={styles.articleBody}>{singleArticle.body}</p>
       </div>
-      <CommentsCollection />
+      <CommentsCollection setSingleArticle={setSingleArticle} />
     </section>
   );
 };
