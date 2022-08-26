@@ -1,11 +1,21 @@
 import axios from "axios";
 
-export const fetchArticles = () => {
-  return fetch(
-    "https://northcoders-news-api-app.herokuapp.com/api/articles"
-  ).then((res) => {
-    return res.json();
-  });
+// export const fetchArticles = () => {
+//   return fetch(
+//     "https://northcoders-news-api-app.herokuapp.com/api/articles"
+//   ).then((res) => {
+//     return res.json();
+//   });
+// };
+
+export const fetchArticles = (sort_by, order) => {
+  return axios
+    .get("https://northcoders-news-api-app.herokuapp.com/api/articles", {
+      params: { sort_by, order },
+    })
+    .then((res) => {
+      return res.data;
+    });
 };
 
 export const fetchArticlesByTopic = (topic) => {
