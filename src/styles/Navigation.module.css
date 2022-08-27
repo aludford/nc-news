@@ -1,5 +1,57 @@
-.noBullets {
+.navMenu {
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+}
+
+.navMenu li {
+  margin: 0 10px;
+  /* float: left; */
+}
+
+.navSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  color: white;
+}
+
+.navSection .currentUser {
+  margin-left: auto;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.navMenu li a {
+  padding: 14px 16px;
+  color: white;
+  display: block;
+  width: 50px;
+  text-align: center;
+}
+
+.navMenu li a:hover {
+  background-color: #111;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+}
+
+.avatar img {
+  max-width: 100%;
+  max-height: 100%;
 }
