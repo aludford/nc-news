@@ -10,10 +10,33 @@
 
 .userInfo {
   display: flex;
+  justify-content: flex-start;
 }
 
 .userInfo p {
   margin: 0 30px;
+}
+
+.userInfo button:last-child {
+  margin-left: auto;
+  font-size: larger;
+  margin-top: 2px;
+  margin-right: 10px;
+  border: none; /* Remove borders */
+  background-color: RoyalBlue; /* colour background */
+  color: white; /* White text */
+  padding: 6px 8px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.userInfo button:hover {
+  background-color: rgb(255, 131, 109);
+}
+
+.userInfo button:disabled {
+  background-color: #dddddd;
+  cursor: not-allowed;
+  color: darkgrey;
 }
 
 .commentBody {

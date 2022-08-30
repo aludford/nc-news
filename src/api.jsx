@@ -70,3 +70,17 @@ export const postCommentAPI = (article_id, username, comment) => {
     { username: username, body: comment }
   );
 };
+
+export const deleteComment = (comment_id) => {
+  return axios.delete(
+    `https://northcoders-news-api-app.herokuapp.com/api/comments/${comment_id}`
+  );
+};
+
+export const fetchUsers = () => {
+  return axios
+    .get("https://northcoders-news-api-app.herokuapp.com/api/users")
+    .then(({ data: { users } }) => {
+      return users;
+    });
+};

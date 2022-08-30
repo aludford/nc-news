@@ -18,6 +18,7 @@ const Topics = () => {
 
   return (
     <div>
+      <h2>All Topics</h2>
       {topics.map((topics) => {
         return (
           <div key={topics.slug}>
