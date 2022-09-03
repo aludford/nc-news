@@ -4,8 +4,19 @@
   align-items: center;
   text-transform: capitalize;
   justify-content: center;
+  background-color: white;
+  margin: 20px 40px;
+  box-shadow: 3px 4px #3f3f3f;
+  border-radius: 30px;
+  color: black;
+  text-decoration: none;
 }
 
 .topics h3 {
   margin-right: 20px;
+}
+
+.topics:hover {
+  background-color: rgb(87, 159, 240);
+  color: white;
 }

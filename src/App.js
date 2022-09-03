@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Articles from "./components/Articles";
+import ErrorPage from "./components/ErrorPage";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Navigation from "./components/Navigation";
@@ -31,6 +32,7 @@ function App() {
             <Route path="/topics" element={<Topics />} />
             <Route path="/topics/:topic_slug" element={<SingleTopic />} />
             <Route path="/users" element={<Users />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </div>
       </UserContext.Provider>
