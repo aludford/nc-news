@@ -7,31 +7,42 @@ import {
 } from "../api";
 import styles from "../styles/SingleArticle.module.css";
 import CommentsCollection from "./CommentsCollection";
+import ErrorPage from "./ErrorPage";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [singleArticle, setSingleArticle] = useState();
   const [optimisticVotes, setOptimisticVotes] = useState(0);
-  const [err, setErr] = useState(null);
+  const [errVote, setErrVote] = useState(null);
+  const [errAPI, setErrAPI] = useState(null);
 
   useEffect(() => {
-    fetchSingleArticle(article_id).then(({ article }) => {
-      setSingleArticle(article);
-      setIsLoading(false);
-    });
+    fetchSingleArticle(article_id)
+      .then(({ article }) => {
+        setSingleArticle(article);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setErrAPI(error.response);
+      });
   }, [article_id]);
 
   if (isLoading) return <p>loading...</p>;
+
+  if (errAPI) {
+    return <ErrorPage errorRes={errAPI} />;
+  }
 
   const incrementVotes = () => {
     setOptimisticVotes((currOptimisticVotes) => {
       return currOptimisticVotes + 1;
     });
-    setErr(null);
+    setErrVote(null);
     patchArticleVotesUp(article_id).catch(() => {
       setOptimisticVotes((currOptimisticVotes) => {
-        setErr("Something went wrong, please try again.");
+        setErrVote("Something went wrong, please try again.");
         return currOptimisticVotes - 1;
       });
     });
@@ -41,10 +52,10 @@ const SingleArticle = () => {
     setOptimisticVotes((currOptimisticVotes) => {
       return currOptimisticVotes - 1;
     });
-    setErr(null);
+    setErrVote(null);
     patchArticleVotesDown(article_id).catch(() => {
       setOptimisticVotes((currOptimisticVotes) => {
-        setErr("Something went wrong, please try again.");
+        setErrVote("Something went wrong, please try again.");
         return currOptimisticVotes + 1;
       });
     });
@@ -85,7 +96,7 @@ const SingleArticle = () => {
         <div className={styles.voting}>
           <button onClick={incrementVotes}>Like!</button>
           <button onClick={decrementVotes}>Dislike!</button>
-          {err ? <p>{err}</p> : null}
+          {errVote ? <p>{errVote}</p> : null}
         </div>
         <p className={styles.articleBody}>{singleArticle.body}</p>
       </div>

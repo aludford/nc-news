@@ -1,13 +1,5 @@
 import axios from "axios";
 
-// export const fetchArticles = () => {
-//   return fetch(
-//     "https://northcoders-news-api-app.herokuapp.com/api/articles"
-//   ).then((res) => {
-//     return res.json();
-//   });
-// };
-
 export const fetchArticles = (sort_by, order) => {
   return axios
     .get("https://northcoders-news-api-app.herokuapp.com/api/articles", {
@@ -19,19 +11,23 @@ export const fetchArticles = (sort_by, order) => {
 };
 
 export const fetchArticlesByTopic = (topic) => {
-  return fetch(
-    `https://northcoders-news-api-app.herokuapp.com/api/articles?topic=${topic}`
-  ).then((res) => {
-    return res.json();
-  });
+  return axios
+    .get(
+      `https://northcoders-news-api-app.herokuapp.com/api/articles?topic=${topic}`
+    )
+    .then((res) => {
+      return res.data;
+    });
 };
 
 export const fetchSingleArticle = (article_id) => {
-  return fetch(
-    `https://northcoders-news-api-app.herokuapp.com/api/articles/${article_id}`
-  ).then((res) => {
-    return res.json();
-  });
+  return axios
+    .get(
+      `https://northcoders-news-api-app.herokuapp.com/api/articles/${article_id}`
+    )
+    .then((res) => {
+      return res.data;
+    });
 };
 
 export const fetchTopics = () => {

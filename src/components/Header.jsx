@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <Link to="/">
-      <h1>NC-News</h1>
-    </Link>
+    <h1>
+      <Link to="/">NC-News</Link>
+    </h1>
   );
 };
 
