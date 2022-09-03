@@ -1,10 +1,12 @@
 .articlesList {
   list-style-type: none; /* Remove bullets */
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 49% 49%;
   grid-template-areas: table table;
-  column-gap: 30px;
+  column-gap: 2%;
   row-gap: 10px;
+  overflow: visible;
+  padding: 0 20px;
 }
 
 .articleTable {
